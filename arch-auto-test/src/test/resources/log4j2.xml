@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="MyFile" fileName="logs/testrun.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </appenders>
+
+    <loggers>
+        <!--<Logger name="org.apache.hc.client5.http.wire" level="warn" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>-->
+        <Logger name="org.apache.hc" level="OFF" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="freemarker.cache" level="OFF" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.asynchttpclient.netty" level="OFF" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="io.github.bonigarcia" level="OFF" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="io.netty" level="OFF" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <root level="debug">
+            <appender-ref ref="Console" level="debug"/>
+            <appender-ref ref="MyFile" level="debug"/>
+        </root>
+    </loggers>
+</configuration>
